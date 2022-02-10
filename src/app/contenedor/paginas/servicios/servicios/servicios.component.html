@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-end">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+        (click)="resetFormulario()">Agregar Servicios</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4" *ngFor='let p of productos'>
+      <div class="card">
+        <div class="box">
+          <div class="img">
+            <img [src]=p.url>
+          </div>
+          <h2>{{p.nombre}}<br><span>{{p.precio}}</span></h2>
+          <p> {{p.descripcion}}</p>
+          <span>
+            <div class="row justify-content-center">
+              <div class="col-6">
+                <button *ngIf="logueado" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo" (click)="seleccionarProducto(p)">Editar</button>
+
+              </div>
+              <div class="col-6">
+                <button *ngIf="logueado" class="btn btn-primary" (click)="eliminarProducto(p.id)">Eliminar</button>
+
+              </div>
+
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <form [formGroup]='formularioProducto'>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Nombre</label>
+              <input type="text" class="form-control" id="recipient-name" formControlName='nombre'>
+            </div>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Precio</label>
+              <input type="number" class="form-control" id="recipient-name" formControlName='precio'>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Descripción</label>
+              <textarea class="form-control" id="message-text" formControlName='descripcion'></textarea>
+            </div>
+            <div class="mb-3">
+              <div>
+                <label for="formFileLg" class="form-label">Subir imagen</label>
+                <input class="form-control form-control-lg" id="formFileLg" type="file" formControlName="url">
+              </div>
+            </div>
+          </form>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="guardarProducto()">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>

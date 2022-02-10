@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*menubar*/
+.p-menubar{
+    border: none !important;
+    border-radius: none !important;
+}
+p-menubarsub{
+margin:0 0 0 auto !important;
+border: none !important;
+}
+.p-menubar-link{
+    transition: all 20s ease-in-out !important;
+    margin-right: 0.6em;
+    font-size: 1em;
+    border-radius: 100 !important;
+
+    }
+
+.p-menuitem-icon{
+    color: rgba(35, 30, 105, 0.85) !important;
+}
+.p-menuitem-text{
+    color:rgba(35, 30, 105, 0.85) !important;
+    font-weight: 900 !important;
+
+}
+.p-submenu-icon{
+    color: rgba(35, 30, 105, 0.85) !important;
+}
+
+.BotonLogin{
+    margin-left: 40%;
+    
+}
+/* inicio */
+.p-button-rounded{
+    background-color: rgba(35, 30, 105, 0.85);
+}
