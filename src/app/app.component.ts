@@ -42,6 +42,13 @@ export class AppComponent implements OnInit {
                 routerLink:"login"
                 
             },
+            {
+                label:'CERRAR SESION',
+                icon:'pi pi-fw',
+                styleClass: 'BotonCerrarSesion',
+                routerLink:""
+                
+            },
         ];
     }
 }
