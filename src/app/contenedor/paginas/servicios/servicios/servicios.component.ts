@@ -47,7 +47,8 @@ export class ServiciosComponent implements OnInit {
   }
 
 
-  async editarProducto() {
+  async guardarProducto() {
+    
 
 
     //vamos a subir la imagen

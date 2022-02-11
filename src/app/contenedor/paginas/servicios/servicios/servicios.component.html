@@ -17,9 +17,8 @@
           <span>
             <div class="row justify-content-center">
               <div class="col-6">
-                <button *ngIf="logueado" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                   data-bs-whatever="@mdo" (click)="seleccionarProducto(p)">Editar</button>
-
               </div>
               <div class="col-6">
                 <button *ngIf="logueado" class="btn btn-primary" (click)="eliminarProducto(p.id)">Eliminar</button>
@@ -59,7 +58,7 @@
             <div class="mb-3">
               <div>
                 <label for="formFileLg" class="form-label">Subir imagen</label>
-                <input class="form-control form-control-lg" id="formFileLg" type="file" formControlName="url">
+                <input class="form-control form-control-lg" id="formFileLg" type="file" formControlName="url" (change)="obtenerFile($event)">
               </div>
             </div>
           </form>
