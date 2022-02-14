@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';                  //api  
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +8,11 @@ import {MenuItem} from 'primeng/api';                  //api
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  constructor(private auth: AuthService) {}
   title = 'camarafinal';
   items!: MenuItem[];
+  logueado: boolean = false;
+
 
     ngOnInit() {
         this.items = [
@@ -34,21 +38,23 @@ export class AppComponent implements OnInit {
                 icon:'pi pi-fw pi-user',
                 routerLink:"contacto"
                 
-            },
-            {
-                label:'LOGIN',
-                icon:'pi pi-fw',
-                styleClass: 'BotonLogin',
-                routerLink:"login"
-                
-            },
-            {
-                label:'CERRAR SESION',
-                icon:'pi pi-fw',
-                styleClass: 'BotonCerrarSesion',
-                routerLink:""
-                
-            },
+            }
         ];
+
+        if(this.logueado){
+            this.items[4]={
+                label:'CERRAR SESION',
+                 routerLink:'inicio'
+            }
+         }
+        else{
+            this.items[4]={
+                label:'LOGIN',
+                routerLink:'login'
+            }
+        }
     }
+
+
+   
 }
