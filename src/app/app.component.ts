@@ -8,13 +8,17 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+
   constructor(private auth: AuthService) {}
+
   title = 'camarafinal';
   items!: MenuItem[];
   logueado: boolean = false;
 
 
     ngOnInit() {
+
         this.items = [
             {
                 label:'INICIO',
@@ -41,20 +45,28 @@ export class AppComponent implements OnInit {
             }
         ];
 
-        if(this.logueado){
-            this.items[4]={
-                label:'CERRAR SESION',
-                 routerLink:'inicio'
+        this.auth.user.subscribe((user)=>{
+            if(user){
+                this.logueado =true;
+                this.items[4]={
+                    label:'CERRAR SESION',
+                     routerLink:'inicio',
+                     
+                     
+                }
             }
-         }
-        else{
-            this.items[4]={
-                label:'LOGIN',
-                routerLink:'login'
+            else{
+                this.logueado = false;
+                this.items[4]={
+                    label:'LOGIN',
+                    routerLink:'login'
+                }
             }
-        }
+        });
+
+
+    
     }
-
-
+ 
    
 }
