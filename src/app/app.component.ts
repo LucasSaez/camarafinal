@@ -47,21 +47,13 @@ export class AppComponent implements OnInit {
 
         this.auth.user.subscribe((user)=>{
             if(user){
-                this.logueado =true;
-                this.items[4]={
-                    label:'CERRAR SESION',
-                     routerLink:'inicio',
-                     
-                     
+                this.logueado =false;
                 }
-            }
+            
             else{
-                this.logueado = false;
-                this.items[4]={
-                    label:'LOGIN',
-                    routerLink:'login'
+                this.logueado = true;
                 }
-            }
+            
         });
 
 
