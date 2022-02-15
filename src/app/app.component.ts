@@ -14,7 +14,8 @@ export class AppComponent implements OnInit {
 
   title = 'camarafinal';
   items!: MenuItem[];
-  logueado: boolean = false;
+  
+  logueado: boolean = true;
 
 
     ngOnInit() {
@@ -47,11 +48,13 @@ export class AppComponent implements OnInit {
 
         this.auth.user.subscribe((user)=>{
             if(user){
-                this.logueado =false;
+                this.logueado =true;
+                
                 }
             
             else{
                 this.logueado = true;
+                console.log(this.logueado);
                 }
             
         });
