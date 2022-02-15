@@ -2,12 +2,12 @@
   <ng-template pTemplate="start">
       <img src="assets/images/Logo camara.png" height="40" class="p-mr-2">
   </ng-template>
-  <button role="menuitem" pripple="" *ngIf="logueado" routerLink="login" class="buttonIC p-ripple p-element p-menuitem-link" ng-reflect-router-link="login" ng-reflect-router-link-active="p-menuitem-link-active" ng-reflect-router-link-active-options="[object Object]" ng-reflect-ng-class="[object Object]" tabindex="0" href="/"><span class="p-menuitem-icon" ng-reflect-ng-class=""></span><!--bindings={
+  <button role="menuitem" pripple="" *ngIf="!logueado" routerLink="login" class="buttonIC p-ripple p-element p-menuitem-link" ng-reflect-router-link="login" ng-reflect-router-link-active="p-menuitem-link-active" ng-reflect-router-link-active-options="[object Object]" ng-reflect-ng-class="[object Object]" tabindex="0" href="/"><span class="p-menuitem-icon" ng-reflect-ng-class=""></span><!--bindings={
     "ng-reflect-ng-if": "pi pi-fw pi-home"
   }--><span class="p-menuitem-text"   >LOGIN</span><!--bindings={
     "ng-reflect-ng-if-else": "[object Object]"
   }--><!--container--><!--bindings={}--></button>
-  <button role="menuitem" pripple="" *ngIf="!logueado" class="buttonIC p-ripple p-element p-menuitem-link buttonIC" ng-reflect-router-link="inicio" ng-reflect-router-link-active="p-menuitem-link-active" ng-reflect-router-link-active-options="[object Object]" ng-reflect-ng-class="[object Object]" tabindex="0" href="/"><span class="p-menuitem-icon" ng-reflect-ng-class=""></span><!--bindings={
+  <button role="menuitem" pripple="" *ngIf="logueado" class="buttonIC p-ripple p-element p-menuitem-link buttonIC" ng-reflect-router-link="inicio" ng-reflect-router-link-active="p-menuitem-link-active" ng-reflect-router-link-active-options="[object Object]" ng-reflect-ng-class="[object Object]" tabindex="0" href="/"><span class="p-menuitem-icon" ng-reflect-ng-class=""></span><!--bindings={
     "ng-reflect-ng-if": "pi pi-fw pi-home"
   }--><span class="p-menuitem-text"  >CERRAR SESION</span><!--bindings={
     "ng-reflect-ng-if-else": "[object Object]"

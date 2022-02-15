@@ -48,12 +48,12 @@ export class AppComponent implements OnInit {
 
         this.auth.user.subscribe((user)=>{
             if(user){
-                this.logueado =true;
+                this.logueado =false;
                 
                 }
             
             else{
-                this.logueado = false;
+                this.logueado = true;
                 console.log(this.logueado);
                 }
             
