@@ -53,7 +53,7 @@ export class AppComponent implements OnInit {
                 }
             
             else{
-                this.logueado = true;
+                this.logueado = false;
                 console.log(this.logueado);
                 }
             
