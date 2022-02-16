@@ -8,6 +8,8 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+    
+public islogged: boolean = false;
 
 
   constructor(private auth: AuthService) {}
@@ -15,10 +17,20 @@ export class AppComponent implements OnInit {
   title = 'camarafinal';
   items!: MenuItem[];
   
-  logueado: boolean = true;
 
+  
 
     ngOnInit() {
+
+        //verifico el estado del usuario
+        this.auth.user.subscribe((user)=>{
+          if (user){
+            this.islogged = true;
+          }
+          else{
+              this.islogged = false;
+          }
+        })
 
         this.items = [
             {
@@ -46,21 +58,17 @@ export class AppComponent implements OnInit {
             }
         ];
 
-        this.auth.user.subscribe((user)=>{
-            if(user){
-                this.logueado =false;
-                
-                }
-            
-            else{
-                this.logueado = false;
-                }
-            
-    });
-
+    }
+    cerrarSesion(){
+        this.auth.logOut().then(()=>{
+            alert("Sesion cerrada con exito")
+        }).catch(()=>{
+            alert("problemas al cerrar sesion")
+        })
+    }
 
     
     }
  
    
-}
+

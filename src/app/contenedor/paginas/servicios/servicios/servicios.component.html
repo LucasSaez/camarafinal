@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12 d-flex justify-content-end">
-      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
+      <button *ngIf="islogged" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"
         (click)="resetFormulario()">Agregar Servicios</button>
     </div>
   </div>
@@ -17,11 +17,11 @@
           <span>
             <div class="row justify-content-center">
               <div class="col-6">
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <button *ngIf="islogged" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                   data-bs-whatever="@mdo" (click)="seleccionarProducto(p)">Editar</button>
               </div>
               <div class="col-6">
-                <button class="btn btn-primary" (click)="eliminarProducto(p.id)">Eliminar</button>
+                <button *ngIf="islogged" class="btn btn-primary" (click)="eliminarProducto(p.id)">Eliminar</button>
 
               </div>
 

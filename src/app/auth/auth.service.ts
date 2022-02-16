@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -31,11 +32,14 @@ login (username:string, password: string){
 Metodo para cerrar sesion en firebase 
 */
 logOut(){
-  this.auth.signOut();
+ return  this.auth.signOut();
 }
 
 currentUser(){
   this.auth.authState
 }
 
+isAuth(){
+  return this.auth.authState.pipe(map (auth => auth))
+}
 }

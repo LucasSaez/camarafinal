@@ -21,7 +21,7 @@ export class ServiciosComponent implements OnInit {
    private file?: File;
  
    public formularioProducto: FormGroup
-   public logueado: boolean = false;
+   public islogged: boolean = false;
 
  
 
@@ -37,6 +37,16 @@ export class ServiciosComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+      //verifico el estado del usuario
+      this.auth.user.subscribe((user)=>{
+        if (user){
+          this.islogged = true;
+        }
+        else{
+            this.islogged = false;
+        }
+      })
     
     // traigo los productos de la base
     this.productoService.obtenerProductos().subscribe((productos) => {
@@ -45,6 +55,8 @@ export class ServiciosComponent implements OnInit {
 
     })
   }
+
+  
 
 
   async guardarProducto() {
